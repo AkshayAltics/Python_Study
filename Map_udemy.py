@@ -30,8 +30,8 @@ df["Latitude"]=df["Co-ordinates"][0].longitude
 df["Latitude"]=df["Co-ordinates"].apply(lambda x:x.latitude if x!=None else None)
 df["longitude"]=df["Co-ordinates"].apply(lambda x:x.longitude if x!=None else None)
 print(df)
-lat=list(df["Latitude"])
-lon=list(df["longitude"])
+lat1=list(df["Latitude"])
+lon1=list(df["longitude"])
 address=list(df["Address"])
 
 html = """<h4>Volcano information:</h4>
@@ -48,7 +48,7 @@ fg.add_child(folium.Marker(location=[18.499097, 73.828352],popup="HII im Marker"
 map.add_child(fg)
 map.save("map1.html")
 
-for lt,ln,add in zip(lat,lon,address):
+for lt,ln,add in zip(lat1,lon1,address):
     iframe = folium.IFrame(html=html % str(add), width=200, height=100)
     fg.add_child(folium.Marker(location=[lt,ln],popup=folium.Popup(iframe),icon=folium.Icon(color="green")))
 map.add_child(fg)

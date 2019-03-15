@@ -45,6 +45,7 @@ def BSE_NSE_MERGE_SORT(msg):
 
 def NSE_BSE_OneFile_Operation(msg,filname,year):
     msg=msg.upper()    
+    print(filename,year)
     print("NSE FILE data on single file")
     if os.path.isfile("f:/StockAnalysis/"+msg+"/Staging/"+year+"/"+filename):
     
@@ -65,7 +66,7 @@ def NSE_BSE_OneFile_Operation(msg,filname,year):
         max_decrease=pd.DataFrame(ls1.iloc[0:5])    
         
         max_decrease.to_csv(msg+'_max_decrease_'+filname,index=False)
-        print(msg+"done")     
+        print(msg+"done",msg+'_max_decrease_'+filname)     
     else:
         print("file not found")
 
